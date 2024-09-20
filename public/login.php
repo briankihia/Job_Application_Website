@@ -39,7 +39,7 @@
 				</div>
 				<div class="hr"></div>
 				<div class="foot">
-					<a href="#">Forgot Password?</a>
+					<a href="forgot_password.php">Forgot Password?</a>
 				</div>
 			</form>
 			</div>
