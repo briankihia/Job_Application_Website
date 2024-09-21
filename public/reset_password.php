@@ -18,24 +18,24 @@
           <!-- Sign-up form -->
           <div class="sign-up-form">
             <form action="../src/process_signup.php" method="post">
-              <div class="group">
+              <!-- <div class="group">
                 <label for="user" class="label">Username</label>
                 <input id="user" name="username" type="text" class="input" placeholder="Create your Username">
-              </div>
+              </div> -->
               <div class="group">
-                <label for="pass" class="label">Password</label>
+                <label for="pass" class="label">New Password</label>
                 <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Create your password">
               </div>
               <div class="group">
                 <label for="pass" class="label">Repeat Password</label>
                 <input id="pass" name="password_repeat" type="password" class="input" data-type="password" placeholder="Repeat your password">
               </div>
-              <div class="group">
+              <!-- <div class="group">
                 <label for="email" class="label">Email Address</label>
                 <input id="email" name="email" type="text" class="input" placeholder="Enter your email address">
-              </div>
+              </div> -->
               <div class="group">
-                <input type="submit" class="button" value="Sign Up">
+                <input type="submit" class="button" value="Reset">
               </div>
             </form>
           </div>
