@@ -17,7 +17,7 @@
         <div class="login-space">
           <!-- Sign-up form -->
           <div class="sign-up-form">
-            <form action="../src/process_signup.php" method="post">
+            <form action="" method="post">
               <!-- <div class="group">
                 <label for="user" class="label">Username</label>
                 <input id="user" name="username" type="text" class="input" placeholder="Create your Username">
