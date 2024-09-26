@@ -24,7 +24,7 @@
         </div>
         <div class="card border border-light-subtle rounded-4">
           <div class="card-body p-3 p-md-4 p-xl-5">
-            <form action="#!">
+            <form action="../src/send_reset_link.php">
               <p class="text-center mb-4">Provide the email address associated with your account to recover your password.</p>
               <div class="row gy-3 overflow-hidden">
                 <div class="col-12">
