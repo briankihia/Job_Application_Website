@@ -45,7 +45,7 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="index.php" class="navbar-brand mx-4 mb-3">
+                <a href="index.html" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -61,7 +61,7 @@
                 <div class="navbar-nav w-100">
                     <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>POSTED JOBS</a>
                     <a href="add_jobs.html" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>ADD JOBS</a>
-                    <a href="table.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>APPLICANTS</a>
+                    <a href="table.php" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>APPLICANTS</a>  <!--Tables -->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -72,8 +72,8 @@
                     </div>
                     <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
                     <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                    <!-- <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>APPLICANTS</a> -->
-                    <a href="chart.html" class="nav-item nav-link active"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                    <!-- <a href="table.html" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>APPLICANTS</a>  Tables -->
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -182,48 +182,127 @@
             <!-- Navbar End -->
 
 
-            <!-- Chart Start -->
+            <!-- Applications  Table Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Single Line Chart</h6>
-                            <canvas id="line-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Multiple Line Chart</h6>
-                            <canvas id="salse-revenue"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Single Bar Chart</h6>
-                            <canvas id="bar-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Multiple Bar Chart</h6>
-                            <canvas id="worldwide-sales"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Pie Chart</h6>
-                            <canvas id="pie-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Doughnut Chart</h6>
-                            <canvas id="doughnut-chart"></canvas>
-                        </div>
-                    </div>
+  
+                
+                  <div class="col-12">
+                      <div class="bg-light rounded h-100 p-4">
+                          <h6 class="mb-4"> Applications</h6>
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <thead>
+                                      <tr>
+                                          <th scope="col">#</th>
+                                          <th scope="col">Username</th>
+                                          <th scope="col">Email</th>
+                                          <!-- <th scope="col">Country</th>
+                                          <th scope="col">ZIP</th>
+                                          <th scope="col">Status</th> -->
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <?php
+                                       // Database connection
+                                        include __DIR__ . '/../db_scripts/config/db_connection.php';
+                                      $sql = "SELECT id, username, email FROM users";
+                                      $result = $conn->query($sql);
+
+                                      if ($result->num_rows > 0) {
+                                          $i = 1;
+                                          // Output data of each row
+                                          while($row = $result->fetch_assoc()) {
+                                              echo "<tr>";
+                                              echo "<th scope='row'>" . $i++ . "</th>";
+                                              echo "<td>" . $row['username'] . "</td>";
+                                              echo "<td>" . $row['email'] . "</td>";
+                                              // echo "<td>" . $row['country'] . "</td>";
+                                              // echo "<td>" . $row['zip'] . "</td>";
+                                              // echo "<td>" . $row['status'] . "</td>";
+                                              echo "</tr>";
+                                          }
+                                      } else {
+                                          echo "<tr><td colspan='6'>No users found</td></tr>";
+                                      }
+                                      $conn->close();
+                                      ?>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+
+
+                    
                 </div>
             </div>
-            <!-- Chart End -->
+            <!-- Table End -->
+
+
+
+
+
+
+
+
+
+            <!-- Registered Members Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+  
+                
+                  <div class="col-12">
+                      <div class="bg-light rounded h-100 p-4">
+                          <h6 class="mb-4">Registered Users</h6>
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <thead>
+                                      <tr>
+                                          <th scope="col">#</th>
+                                          <th scope="col">Username</th>
+                                          <th scope="col">Email</th>
+                                          <!-- <th scope="col">Country</th>
+                                          <th scope="col">ZIP</th>
+                                          <th scope="col">Status</th> -->
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <?php
+                                       // Database connection
+                                        include __DIR__ . '/../db_scripts/config/db_connection.php';
+                                      $sql = "SELECT id, username, email FROM users";
+                                      $result = $conn->query($sql);
+
+                                      if ($result->num_rows > 0) {
+                                          $i = 1;
+                                          // Output data of each row
+                                          while($row = $result->fetch_assoc()) {
+                                              echo "<tr>";
+                                              echo "<th scope='row'>" . $i++ . "</th>";
+                                              echo "<td>" . $row['username'] . "</td>";
+                                              echo "<td>" . $row['email'] . "</td>";
+                                              // echo "<td>" . $row['country'] . "</td>";
+                                              // echo "<td>" . $row['zip'] . "</td>";
+                                              // echo "<td>" . $row['status'] . "</td>";
+                                              echo "</tr>";
+                                          }
+                                      } else {
+                                          echo "<tr><td colspan='6'>No users found</td></tr>";
+                                      }
+                                      $conn->close();
+                                      ?>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+
+
+                    
+                </div>
+            </div>
+            <!-- Table End -->
 
 
             <!-- Footer Start -->

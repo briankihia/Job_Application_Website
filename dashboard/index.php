@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +47,8 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                    <!-- <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>ADMIN</h3> -->
+                    <h3 class="text-primary">ADMIN</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -61,9 +61,9 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>POSTED JOBS</a>
+                    <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>POSTED JOBS</a>
                     <a href="add_jobs.html" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>ADD JOBS</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>APPLICANTS</a>
+                    <a href="table.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>APPLICANTS</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -188,11 +188,14 @@
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
+
+
+
+                    <!-- <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-line fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
+                                <p class="mb-2">Total Jobs Posted</p>
                                 <h6 class="mb-0">$1234</h6>
                             </div>
                         </div>
@@ -201,12 +204,58 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
+                                <p class="mb-2">Registered Users</p>
                                 <h6 class="mb-0">$1234</h6>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
+                    </div> -->
+
+
+
+                    <?php
+                         // Database connection
+                         include __DIR__ . '/../db_scripts/config/db_connection.php';
+
+                        // Query to get total jobs posted
+                        $jobsResult = $conn->query("SELECT COUNT(*) AS total_jobs FROM jobs");
+                        $jobsRow = $jobsResult->fetch_assoc();
+                        $totalJobs = $jobsRow['total_jobs'];
+
+                        // Query to get total registered users
+                        $usersResult = $conn->query("SELECT COUNT(*) AS total_users FROM users");
+                        $usersRow = $usersResult->fetch_assoc();
+                        $totalUsers = $usersRow['total_users'];
+                        ?>
+
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                <i class="fa fa-chart-line fa-3x text-primary"></i>
+                                <div class="ms-3">
+                                    <p class="mb-2">Total Jobs Posted</p>
+                                    <h6 class="mb-0"><?php echo $totalJobs; ?></h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                                <div class="ms-3">
+                                    <p class="mb-2">Registered Users</p>
+                                    <h6 class="mb-0"><?php echo $totalUsers; ?></h6>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+                    <!-- <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
@@ -223,45 +272,22 @@
                                 <h6 class="mb-0">$1234</h6>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- Sale & Revenue End -->
 
 
-            <!-- Sales Chart Start -->
-            <!-- <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Worldwide Sales</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <canvas id="worldwide-sales"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Salse & Revenue</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <canvas id="salse-revenue"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- Sales Chart End -->
+           
 
 
             <!-- Recent Sales Start -->
-            <div class="container-fluid pt-4 px-4">
+            <!-- <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4"> -->
                         <!-- <h6 class="mb-0">Recent Salse</h6> -->
                          <!-- Add Job Button -->
-                        <a href="add_jobs.html" class="btn btn-primary">Add Job</a>
+                        <!-- <a href="add_jobs.html" class="btn btn-primary">Add Job</a>
                         <a href="">Show All</a>
                     </div>
                     <div class="table-responsive">
@@ -328,196 +354,104 @@
                         </table>
                     </div>
 
-                    <!-- <?php
-                    // Database connection parameters
-                    $servername = "localhost"; // Your server name
-                    $username = "your_username"; // Your database username
-                    $password = "your_password"; // Your database password
-                    $dbname = "your_database"; // Your database name
+                   
 
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-
-                    // Fetch jobs from the database
-                    $sql = "SELECT job_title, job_category, job_location, salary, job_type, deadline, job_description FROM jobs";
-                    $result = $conn->query($sql);
-
-                    ?>
-
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                    <th scope="col">Job Title</th>
-                                    <th scope="col">Job Category</th>
-                                    <th scope="col">Job Location</th>
-                                    <th scope="col">Salary</th>
-                                    <th scope="col">Job Type</th>
-                                    <th scope="col">Deadline</th>
-                                    <th scope="col">Job Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if ($result->num_rows > 0): ?>
-                                    <?php while($row = $result->fetch_assoc()): ?>
-                                        <tr>
-                                            <td><input class="form-check-input" type="checkbox"></td>
-                                            <td><?php echo htmlspecialchars($row['job_title']); ?></td>
-                                            <td><?php echo htmlspecialchars($row['job_category']); ?></td>
-                                            <td><?php echo htmlspecialchars($row['job_location']); ?></td>
-                                            <td><?php echo htmlspecialchars($row['salary']); ?></td>
-                                            <td><?php echo htmlspecialchars($row['job_type']); ?></td>
-                                            <td><?php echo htmlspecialchars($row['deadline']); ?></td>
-                                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                        </tr>
-                                    <?php endwhile; ?>
-                                <?php else: ?>
-                                    <tr>
-                                        <td colspan="8" class="text-center">No jobs available</td>
-                                    </tr>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <?php
-                    // Close connection
-                    $conn->close();
-                    ?> -->
-
-                </div>
-            </div>
-            <!-- Recent Sales End -->
-
-
-            <!-- Widgets Start -->
-            <!-- <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Messages</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center pt-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div id="calender"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">To Do List</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <input class="form-control bg-transparent" type="text" placeholder="Enter task">
-                                <button type="button" class="btn btn-primary ms-2">Add</button>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox" checked>
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span><del>Short task goes here...</del></span>
-                                        <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center pt-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div> -->
-            <!-- Widgets End -->
 
 
+            <!-- Recent Jobs Start -->
+                <div class="container-fluid pt-4 px-4">
+                    <div class="bg-light text-center rounded p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <a href="add_jobs.html" class="btn btn-primary">Add Job</a>
+                            <a href="">Show All</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                                <thead>
+                                    <tr class="text-dark">
+                                        <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                                        <th scope="col">Job Title</th>
+                                        <th scope="col">Job Category</th>
+                                        <th scope="col">Job Location</th>
+                                        <th scope="col">Salary</th>
+                                        <th scope="col">Job Type</th>
+                                        <th scope="col">Deadline</th>
+                                        <th scope="col">Job Description</th>
+                                        <th scope="col">Delete Job Post</th>
+                                        <th scope="col">Details</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    // Database connection
+                                    include __DIR__ . '/../db_scripts/config/db_connection.php';
+
+                                    // $conn = new mysqli('localhost', 'username', 'password', 'database_name');
+
+                                    // Check connection
+                                    // if ($conn->connect_error) {
+                                    //     die("Connection failed: " . $conn->connect_error);
+                                    // }
+
+                                    // Fetch jobs from database
+                                    $sql = "SELECT * FROM jobs"; // Make sure to replace 'jobs' with your actual table name
+                                    $result = $conn->query($sql);
+
+                                    // Check if there are jobs
+                                    if ($result->num_rows > 0) {
+                                        // Output data of each row
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo '<tr>';
+                                            echo '<td><input class="form-check-input" type="checkbox"></td>';
+                                            echo '<td>' . htmlspecialchars($row['job_title']) . '</td>';
+                                            echo '<td>' . htmlspecialchars($row['job_category']) . '</td>';
+                                            echo '<td>' . htmlspecialchars($row['job_location']) . '</td>';
+                                            echo '<td>' . htmlspecialchars($row['salary']) . '</td>';
+                                            echo '<td>' . htmlspecialchars($row['job_type']) . '</td>';
+                                            echo '<td>' . htmlspecialchars($row['application_deadline']) . '</td>';
+                                            echo '<td>' . htmlspecialchars($row['job_description']) . '</td>';
+                                            // echo '<td><a class="btn btn-sm btn-primary" href="job_detail.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
+                                             // Add a delete button
+                                             echo '<td>
+                                             <form method="POST" action="../dashboard/php/delete_job.php" onsubmit="return confirm(\'Are you sure you want to delete this job?\');">
+                                                 <input type="hidden" name="job_id" value="' . htmlspecialchars($row['id']) . '">
+                                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                             </form>
+                                             </td>';
+
+
+                                             echo '<td><a class="btn btn-sm btn-primary" href="job_detail.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
+
+                                            echo '</tr>';
+
+                                        
+                                            
+
+
+                                           
+
+
+                                        }
+                                    } else {
+                                        echo '<tr><td colspan="8">No jobs found</td></tr>';
+                                    }
+
+                                    // Close the connection
+                                    $conn->close();
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+           
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
