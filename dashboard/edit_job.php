@@ -185,72 +185,73 @@
 
       
 
+            <!-- edit jobs section -->
 
-            <div class="col-sm-12 col-xl-6">
-              <div class="bg-light rounded h-100 p-4">
-                  <h6 class="mb-4">Add Job</h6>
 
-                  <form action="../dashboard/php/submit_job.php" method="post">
-                    <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="floatingJobTitle" name="jobTitle" placeholder="Job Title" required>
-                      <label for="floatingJobTitle">Job Title</label>
-                    </div>
-                  
-                    <div class="form-floating mb-3">
-                      <select class="form-select" id="jobCategorySelect"  name="jobCategory"  aria-label="Job category select" required>
-                        <option selected disabled value="">Select a job category</option>
-                        <option value="software_engineering">Software Engineering</option>
-                        <option value="data_science">Data Science</option>
-                        <option value="design">Design</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="human_resources">Human Resources</option>
-                        <option value="sales">Sales</option>
-                      </select>
-                      <label for="jobCategorySelect">Job Category</label>
-                    </div>
-                  
-                    <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="floatingJobLocation"  name="jobLocation"  placeholder="Job Location" required>
-                      <label for="floatingJobLocation">Job Location</label>
-                    </div>
-                  
-                    <div class="form-floating mb-3">
-                      <input type="number" class="form-control" id="floatingSalary" name="salary" placeholder="Salary" required>
-                      <label for="floatingSalary">Expected Salary</label>
-                    </div>
-                  
-                    <div class="form-floating mb-3">
-                      <select class="form-select" id="jobTypeSelect" name="jobType" aria-label="Job type select" required>
-                        <option selected disabled value="">Select job type</option>
-                        <option value="full_time">Full-time</option>
-                        <option value="part_time">Part-time</option>
-                        <option value="contract">Contract</option>
-                        <option value="internship">Internship</option>
-                      </select>
-                      <label for="jobTypeSelect">Job Type</label>
-                    </div>
-                  
-                    <div class="form-floating mb-3">
-                      <input type="date" class="form-control" id="floatingDeadline"  name="deadline" required>
-                      <label for="floatingDeadline">Application Deadline</label>
-                    </div>
-                  
-                    <div class="form-floating">
-                      <textarea class="form-control" placeholder="Enter the job description here" id="floatingTextarea"   name="jobDescription" style="height: 150px;" required></textarea>
-                      <label for="floatingTextarea">Job Description</label>
-                    </div>
-                  
-                    <button type="submit" class="btn btn-primary" value="submit">Submit Job</button>
-                  </form>
-                  
-              </div>
-          </div>
+             
+            <?php
+                // Include the file where backend logic is stored
+                include '../dashboard/php/edit_job_process.php'; 
+                
 
-          
+                // Assuming the job_id is passed as a query parameter
+                if (isset($_GET['id'])) {
+                    $job_id = $_GET['id'];
+                    // Fetch job data based on job_id
+                    $job = fetchJob($job_id); // Function from job_controller.php
+                } else {
+                    die("Job ID not provided.");
+                }
+                ?>
 
-           
+               
+                    <div class="container mt-4">
+                        <div class="col-sm-12 col-xl-6">
+                            <div class="bg-light rounded h-100 p-4">
+                                <h6 class="mb-4">Edit Job</h6>
+                                <form action="../dashboard/php/edit_job_process.php" method="POST">
+                                    <input type="hidden" name="job_id" value="<?php echo $job['id']; ?>">
 
-           
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="title" name="title" value="<?php echo $job['job_title']; ?>" placeholder="Job Title" required>
+                                        <label for="title">Job Title</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <textarea class="form-control" id="description" name="description" placeholder="Job Description" required><?php echo $job['job_description']; ?></textarea>
+                                        <label for="description">Job Description</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="location" name="location" value="<?php echo $job['job_location']; ?>" placeholder="Location" required>
+                                        <label for="location">Location</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="number" class="form-control" id="salary" name="salary" value="<?php echo $job['salary']; ?>" placeholder="Salary" required>
+                                        <label for="salary">Salary</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="job_type" name="job_type" required>
+                                            <option value="full-time" <?php if ($job['job_type'] == 'full_time') echo 'selected'; ?>>Full-time</option>
+                                            <option value="part-time" <?php if ($job['job_type'] == 'part_time') echo 'selected'; ?>>Part-time</option>
+                                            <option value="internship" <?php if ($job['job_type'] == 'internship') echo 'selected'; ?>>Internship</option>
+
+                                        </select>
+                                        <label for="job_type">Job Type</label>
+                                    </div>
+
+                                    <button type="submit" name="update_job" class="btn btn-primary" value="update">Update Job</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+              
+                          
 
 
             <!-- Footer Start -->

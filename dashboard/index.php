@@ -423,16 +423,12 @@
                                              </td>';
 
 
-                                             echo '<td><a class="btn btn-sm btn-primary" href="job_detail.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
+                                             echo '<td><a class="btn btn-sm btn-primary" href="edit_job.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
 
                                             echo '</tr>';
 
                                         
-                                            
-
-
-                                           
-
+                                        
 
                                         }
                                     } else {
