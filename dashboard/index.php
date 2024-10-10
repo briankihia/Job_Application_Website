@@ -1,3 +1,16 @@
+<?php 
+session_start();
+
+// Check if the user is logged in. This part protects this page for not logged in users
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: ../public/login.php");
+    exit();
+}
+?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +69,7 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
+                        <h6 class="mb-0"> <?php echo htmlspecialchars($_SESSION['username']); ?></h6>
                         <span>Admin</span>
                     </div>
                 </div>
@@ -65,7 +78,7 @@
                     <a href="index.php" class="nav-item nav-link"><i class="fa fa-briefcase me-2"></i>POSTED JOBS</a>
                     <!-- <a href="add_jobs.html" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>ADD JOBS</a>
                     <a href="table.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>APPLICANTS</a> -->
-                    <a href="add_jobs.html" class="nav-item nav-link"> <i class="fa fa-plus me-2"></i>ADD JOBS</a>
+                    <a href="add_jobs.php" class="nav-item nav-link"> <i class="fa fa-plus me-2"></i>ADD JOBS</a>
                     <a href="table.php" class="nav-item nav-link"> <i class="fa fa-users me-2"></i>APPLICANTS</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
@@ -175,7 +188,21 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <!-- <span class="d-none d-lg-inline-flex">John Doe</span> -->
+
+
+                               <!-- want to add the dynamic page where if user is logged in the login button doesn't show and user name and sgnout is the one that shows -->
+
+                               <!-- want to add the dynamic page where if user is logged in the login button doesn't show and user name and sgnout is the one that shows -->
+
+
+
+                          <!-- this part makes the page dynamic enabling the admin name to be shown on page-->
+                            <span class="d-none d-lg-inline-flex"> <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                                    
+                            
+
+
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
@@ -367,7 +394,7 @@
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <a href="add_jobs.html" class="btn btn-primary">Add Job</a>
+                            <a href="add_jobs.php" class="btn btn-primary">Add Job</a>
                             <a href="">Show All</a>
                         </div>
                         <div class="table-responsive">
