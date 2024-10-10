@@ -23,7 +23,7 @@
 
   // SQL query to insert user data into the database
   // so here below should look the same as how the data is in the database
-  $sql = "INSERT INTO users (username, password, email) VALUES ('$user', '$hashed_pass', '$email')";
+  $sql = "INSERT INTO users (username, password, email, role) VALUES ('$user', '$hashed_pass', '$email', 'normal')";
 
   // Execute query and check if succesful
   if($conn->query($sql) === TRUE) {
