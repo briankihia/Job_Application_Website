@@ -34,7 +34,7 @@
                 echo "Login successful! Welcome, " . $db_username;
 
                 // Redirect to a protected page
-                header("Location: ../index.html");
+                header("Location: ../index.php");
                 exit();
             } else {
                 echo "Invalid password.";
