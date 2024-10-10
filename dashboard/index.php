@@ -409,8 +409,9 @@ if (!isset($_SESSION['user_id'])) {
                                         <th scope="col">Job Type</th>
                                         <th scope="col">Deadline</th>
                                         <th scope="col">Job Description</th>
-                                        <th scope="col">Delete Job Post</th>
                                         <th scope="col">Details</th>
+                                        <th scope="col">Delete Job Post</th>
+                                        
 
                                     </tr>
                                 </thead>
@@ -443,6 +444,9 @@ if (!isset($_SESSION['user_id'])) {
                                             echo '<td>' . htmlspecialchars($row['job_type']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['application_deadline']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['job_description']) . '</td>';
+
+                                            echo '<td><a class="btn btn-sm btn-primary" href="edit_job.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
+
                                             // echo '<td><a class="btn btn-sm btn-primary" href="job_detail.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
                                              // Add a delete button
                                              echo '<td>
@@ -453,8 +457,7 @@ if (!isset($_SESSION['user_id'])) {
                                              </td>';
 
 
-                                             echo '<td><a class="btn btn-sm btn-primary" href="edit_job.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
-
+                                             
                                             echo '</tr>';
 
                                         
