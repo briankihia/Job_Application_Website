@@ -27,7 +27,9 @@
 
   // Execute query and check if succesful
   if($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    // echo "New record created successfully";
+    header("LOcation:../public/login.php");
+    exit();  //Make sure to call exit to stop the script after redirection
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
