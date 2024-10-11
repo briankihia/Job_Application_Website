@@ -1,3 +1,9 @@
+<?php
+// Start the session
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +98,20 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about">LOGIN</a>
+      <!-- want to add the dynamic page where if user is logged in the login button doesn't show and user name and sgnout is the one that shows -->
+
+      <?php if(isset($_SESSION['user_id'])): ?>
+        <div class="welcome-message">
+            <a class="btn-getstarted" href="src/process_logout.php">LOGOUT</a>
+            <span class="welcome-text">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
+        </div>
+        <?php else: ?>
+            <a class="btn-getstarted" href="public/login.php">LOGIN</a>
+        <?php endif; ?>
+
+
+
+      <!-- <a class="btn-getstarted" href="public/login.php">LOGIN</a> -->
 
     </div>
   </header>

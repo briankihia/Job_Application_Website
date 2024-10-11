@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   VALUES ('$jobTitle', '$jobCategory', '$jobLocation', '$salary', '$jobType', '$deadline', '$jobDescription')";
 
   if ($conn->query($sql) === TRUE) {
-  echo "New job posted successfully";
+    echo "New job posted successfully";
   } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
   }

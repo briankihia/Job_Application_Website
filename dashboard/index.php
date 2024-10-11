@@ -1,3 +1,16 @@
+<?php 
+session_start();
+
+// Check if the user is logged in. This part protects this page for not logged in users
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: ../public/login.php");
+    exit();
+}
+?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +21,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -56,30 +70,31 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
+                        <h6 class="mb-0"> <?php echo htmlspecialchars($_SESSION['username']); ?></h6>
                         <span>Admin</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
                     <!-- <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>POSTED JOBS</a> -->
+                    <a href="../index.php" class="nav-item nav-link"><i class="fa fa-home me-2"></i>HOME</a>
                     <a href="index.php" class="nav-item nav-link"><i class="fa fa-briefcase me-2"></i>POSTED JOBS</a>
                     <!-- <a href="add_jobs.html" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>ADD JOBS</a>
                     <a href="table.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>APPLICANTS</a> -->
-                    <a href="add_jobs.html" class="nav-item nav-link"> <i class="fa fa-plus me-2"></i>ADD JOBS</a>
+                    <a href="add_jobs.php" class="nav-item nav-link"> <i class="fa fa-plus me-2"></i>ADD JOBS</a>
                     <a href="table.php" class="nav-item nav-link"> <i class="fa fa-users me-2"></i>APPLICANTS</a>
-                    <div class="nav-item dropdown">
+                    <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="button.html" class="dropdown-item">Buttons</a>
                             <a href="typography.html" class="dropdown-item">Typography</a>
                             <a href="element.html" class="dropdown-item">Other Elements</a>
                         </div>
-                    </div>
+                    </div> -->
                     
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <!-- <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a> -->
                     <!-- <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>APPLICANTS</a> -->
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                    <!-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -88,7 +103,7 @@
                             <a href="404.html" class="dropdown-item">404 Error</a>
                             <a href="blank.html" class="dropdown-item">Blank Page</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </nav>
         </div>
@@ -175,7 +190,21 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <!-- <span class="d-none d-lg-inline-flex">John Doe</span> -->
+
+
+                               <!-- want to add the dynamic page where if user is logged in the login button doesn't show and user name and sgnout is the one that shows -->
+
+                               <!-- want to add the dynamic page where if user is logged in the login button doesn't show and user name and sgnout is the one that shows -->
+
+
+
+                          <!-- this part makes the page dynamic enabling the admin name to be shown on page-->
+                            <span class="d-none d-lg-inline-flex"> <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                                    
+                            
+
+
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
@@ -367,14 +396,14 @@
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <a href="add_jobs.html" class="btn btn-primary">Add Job</a>
+                            <a href="add_jobs.php" class="btn btn-primary">Add Job</a>
                             <a href="">Show All</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table text-start align-middle table-bordered table-hover mb-0">
                                 <thead>
                                     <tr class="text-dark">
-                                        <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                                        <!-- <th scope="col"><input class="form-check-input" type="checkbox"></th> -->
                                         <th scope="col">Job Title</th>
                                         <th scope="col">Job Category</th>
                                         <th scope="col">Job Location</th>
@@ -382,8 +411,9 @@
                                         <th scope="col">Job Type</th>
                                         <th scope="col">Deadline</th>
                                         <th scope="col">Job Description</th>
-                                        <th scope="col">Delete Job Post</th>
                                         <th scope="col">Details</th>
+                                        <th scope="col">Delete Job Post</th>
+                                        
 
                                     </tr>
                                 </thead>
@@ -408,14 +438,17 @@
                                         // Output data of each row
                                         while ($row = $result->fetch_assoc()) {
                                             echo '<tr>';
-                                            echo '<td><input class="form-check-input" type="checkbox"></td>';
+                                            // echo '<td><input class="form-check-input" type="checkbox"></td>';
                                             echo '<td>' . htmlspecialchars($row['job_title']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['job_category']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['job_location']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['salary']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['job_type']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['application_deadline']) . '</td>';
-                                            echo '<td>' . htmlspecialchars($row['job_description']) . '</td>';
+                                            echo '<td >' . htmlspecialchars($row['job_description']) . '</td>';
+
+                                            echo '<td><a class="btn btn-sm btn-primary" href="edit_job.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
+
                                             // echo '<td><a class="btn btn-sm btn-primary" href="job_detail.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
                                              // Add a delete button
                                              echo '<td>
@@ -426,8 +459,7 @@
                                              </td>';
 
 
-                                             echo '<td><a class="btn btn-sm btn-primary" href="edit_job.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
-
+                                             
                                             echo '</tr>';
 
                                         

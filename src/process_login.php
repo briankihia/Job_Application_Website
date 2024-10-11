@@ -13,7 +13,7 @@
     if(!empty($username)&& !empty($password)) {
       
       // Prepare a SQL statement to select the user
-      $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
+      $stmt = $conn->prepare("SELECT id, username, password, role FROM users WHERE username = ?");
       $stmt->bind_param("s", $username);
       $stmt->execute();
       $stmt->store_result();
@@ -21,7 +21,7 @@
       // Check if the user exists
       if ($stmt->num_rows > 0) {
         // Bind the result variables
-        $stmt->bind_result($id, $db_username, $db_password);
+        $stmt->bind_result($id, $db_username, $db_password,$role);
         $stmt->fetch();
 
            // Verify the password
@@ -30,11 +30,21 @@
                 session_start();
                 $_SESSION['user_id'] = $id;
                 $_SESSION['username'] = $db_username;
+                $_SESSION['role'] = $role;
 
                 echo "Login successful! Welcome, " . $db_username;
 
+                // Redirect based on user role
+                if ($role == 'admin') {
+                  // Redirect to admin dashboard
+                  header("Location: ../dashboard/index.php");
+              } else {
+                  // Redirect to normal user page
+                  header("Location: ../index.php");
+              }
+
                 // Redirect to a protected page
-                header("Location: ../public/dashboard.php");
+                // header("Location: ../index.php");
                 exit();
             } else {
                 echo "Invalid password.";
