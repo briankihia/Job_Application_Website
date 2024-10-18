@@ -252,9 +252,22 @@ if (!isset($_SESSION['user_id'])) {
                       <label for="floatingDeadline">Application Deadline</label>
                     </div>
                   
-                    <div class="form-floating">
+                    <div class="form-floating mb-3 ">
                       <textarea class="form-control" placeholder="Enter the job description here" id="floatingTextarea"   name="jobDescription" style="height: 150px;" required></textarea>
                       <label for="floatingTextarea">Job Description</label>
+                    </div>
+
+
+                    <!-- Education Details -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingEducationDetails" name="educationDetails" placeholder="Education Details" required>
+                        <label for="floatingEducationDetails">Education Requirements</label>
+                    </div>
+
+                    <!-- Required Knowledge -->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Enter the required knowledge here" id="floatingRequiredKnowledge" name="requiredKnowledge" style="height: 100px;" required></textarea>
+                        <label for="floatingRequiredKnowledge">Required Knowledge</label>
                     </div>
                   
                     <button type="submit" class="btn btn-primary" value="submit">Submit Job</button>

@@ -143,12 +143,16 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to right, #ffffff, #1E3A8A); 
+  background-color: #1E3A8A;
+  color: white; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  ;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 15px 0;
+  padding: 10px 20px;
   transition: all 0.5s;
   z-index: 997;
 }
@@ -204,13 +208,14 @@ h6 {
 }
 
 .scrolled .header {
-  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
-}
+  box-shadow: 0px 0px 18px rgba(30, 58, 138, 0.5); /* Adjusted to a blue color */
+
+ }
 
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #000000;
+  --background-color: 0px 0px 18px rgba(30, 58, 138, 0.5); 
 }
 
 /*--------------------------------------------------------------
@@ -220,6 +225,9 @@ h6 {
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
+    display: flex;
+    flex-direction: row; /* Align links horizontally */
+    flex-wrap: wrap
   }
 
   .navmenu ul {
@@ -228,9 +236,11 @@ h6 {
     display: flex;
     list-style: none;
     align-items: center;
+    display: flex;
   }
 
   .navmenu li {
+    margin: 0 15px; 
     position: relative;
   }
 
@@ -247,7 +257,7 @@ h6 {
   .navmenu a:focus {
     color: var(--nav-color);
     font-size: 15px;
-    padding: 0 2px;
+    padding: 10px 15px;
     font-family: var(--nav-font);
     font-weight: 400;
     display: flex;
@@ -360,12 +370,19 @@ h6 {
   }
 
   .navmenu {
-    padding: 0;
-    z-index: 9997;
+    background-color: #007bff; /* Blue background */
+    padding: 15px; /* Padding around the menu */
+    position: absolute; /* Positioning for the dropdown effect */
+    z-index: 1000; /* Ensure it's above other content */
+    width: 200px; /* Fixed width for the sidebar */
+    transition: transform 0.3s ease; /* Smooth transition */
+    transform: translateX(-100%); /* Hidden by default */
+    }
+    .navmenu.active {
+      transform: translateX(0); /* Slide in */
   }
-
   .navmenu ul {
-    display: none;
+    display: flex;
     list-style: none;
     position: absolute;
     inset: 60px 20px 20px 20px;
@@ -378,8 +395,21 @@ h6 {
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
+    flex-direction: column;
   }
-
+  .navmenu li {
+    margin: 10px 0; /* Space between links */
+}
+.navmenu a {
+  text-decoration: none;
+  color: white; /* White text color */
+  padding: 10px; /* Padding for links */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth background change */
+}
+.navmenu a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighten on hover */
+}
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
@@ -460,7 +490,9 @@ h6 {
     margin-right: 0;
     z-index: 9999;
   }
-
+  .mobile-nav-toggle {
+    display: none; /* Hide by default */
+}
   .mobile-nav-active .navmenu {
     position: fixed;
     overflow: hidden;
@@ -473,7 +505,29 @@ h6 {
     display: block;
   }
 }
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navmenu {
+      display: flex; /* Flexbox for layout */
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the left */
+      height: 100vh; /* Full height */
+      position: fixed; /* Fixed positioning */
+      left: 0; /* Align to the left */
+      top: 0; /* Align to the top */
+      transform: translateX(-100%); /* Hidden by default */
+      background-color: #007bff; /* Blue background */
+      overflow-y: auto; /* Scroll if content overflows */
+  }
 
+  .mobile-nav-toggle {
+      display: block; /* Show the toggle button */
+      cursor: pointer; /* Pointer on hover */
+      color: white; /* White color */
+      font-size: 24px; /* Adjust size */
+      margin: 10px; /* Margin around the button */
+  }
+}
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/

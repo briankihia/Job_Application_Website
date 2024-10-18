@@ -14,10 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   $jobType = $conn->real_escape_string($_POST['jobType']);
   $deadline = $conn->real_escape_string($_POST['deadline']);
   $jobDescription = $conn->real_escape_string($_POST['jobDescription']);
+  $educationDetails = $conn->real_escape_string($_POST['educationDetails']);
+  $requiredKnowledge = $conn->real_escape_string($_POST['requiredKnowledge']);
+
 
   // SQL to insert the data into the jobs table
-  $sql = "INSERT INTO jobs (job_title, job_category, job_location, salary, job_type, application_deadline, job_description)
-  VALUES ('$jobTitle', '$jobCategory', '$jobLocation', '$salary', '$jobType', '$deadline', '$jobDescription')";
+  $sql = "INSERT INTO jobs (job_title, job_category, job_location, salary, job_type, application_deadline, job_description,required_knowledge,education)
+  VALUES ('$jobTitle', '$jobCategory', '$jobLocation', '$salary', '$jobType', '$deadline', '$jobDescription','$requiredKnowledge','$educationDetails')";
 
   if ($conn->query($sql) === TRUE) {
     echo "New job posted successfully";

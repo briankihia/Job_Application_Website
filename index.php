@@ -40,6 +40,8 @@ session_start();
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  
+  
 </head>
 
 <body class="index-page">
@@ -50,16 +52,31 @@ session_start();
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">JOB SITE</h1>
+        
+        <h1 class="sitename">
+    <img src="assets/img/logo/logo.PNG" alt="Logo" style="height:80px; width:auto; vertical-align: middle;">
+    JOB SITE
+</h1>
+
+
+</a>
+
+</a>
+
+
       </a>
+
+      
 
       <nav id="navmenu" class="navmenu">
         <ul>
+          
           <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
+          
           
           <li><a href="#portfolio">Portfolio</a></li>
-          <li class="dropdown"><a href="#"><span>vacancies</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="job.php">job Search</a></li>
+          <li class="dropdown"><a href="#"><span>Job Application</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
              
               <li class="dropdown">
@@ -83,7 +100,7 @@ session_start();
                   </li>
                   <li><a href="#">Company Information</a>
                     <ul>
-                      <li><a href="#">About Us</a></li>
+                      
                       <li><a href="#">Company Culture</a></li>
                       <li><a href="#">Values and Mission</a></li>
                       <li><a href="#">Team and Leadership</a></li>
@@ -107,6 +124,7 @@ session_start();
         </div>
         <?php else: ?>
             <a class="btn-getstarted" href="public/login.php">LOGIN</a>
+            
         <?php endif; ?>
 
 
@@ -124,7 +142,7 @@ session_start();
   <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
     <div class="carousel-item active">
-      <img src="assets/assets/img/template/Groovin/hero-carousel/hero-carousel-1.jpg" alt="Job Opportunities">
+      <img src="assets/assets/img/template/rcmrd/hero-carousel/hero-carousel-1.jpg" alt="Job Opportunities">
       <div class="carousel-container">
         <h2>Empowering Your Career Journey</h2>
         <p>Discover exciting job opportunities with us. Our commitment to professional development ensures you have the tools to succeed. Join a team that values innovation, diversity, and growth.</p>
@@ -133,7 +151,7 @@ session_start();
     </div><!-- End Carousel Item -->
 
     <div class="carousel-item">
-      <img src="assets/assets/img/template/Groovin/hero-carousel/hero-carousel-2.jpg" alt="Career Growth">
+      <img src="assets/assets/img/template/rcmrd/hero-carousel/hero-carousel-2.jpg" alt="Career Growth">
       <div class="carousel-container">
         <h2>Join Us in Shaping the Future</h2>
         <p>Your next career move is just a click away! At our company, we believe in nurturing talent and providing opportunities for growth. Whether you're starting your career or looking to advance, we have a place for you.</p>
@@ -142,7 +160,7 @@ session_start();
     </div><!-- End Carousel Item -->
     
     <div class="carousel-item">
-      <img src="assets/assets/img/template/Groovin/hero-carousel/hero-carousel-3.jpg" alt="Join Our Team">
+      <img src="assets/assets/img/template/rcmrd/hero-carousel/hero-carousel-3.jpg" alt="Join Our Team">
       <div class="carousel-container">
         <h2>Your Future Starts Here</h2>
         <p>Unlock your potential with us! We are looking for passionate individuals ready to make an impact. Join a dynamic team where your skills are valued and your career can thrive.</p>
@@ -166,11 +184,8 @@ session_start();
     </section><!-- /Hero Section -->
 <!-- Stats Section -->
 <section id="stats" class="stats section">
-
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-
     <div class="row gy-4">
-
       <div class="col-lg-3 col-md-6">
         <div class="stats-item">
           <i class="bi bi-emoji-smile"></i>
@@ -202,6 +217,9 @@ session_start();
           <p><strong>Team Members</strong> <span>dedicated to excellence</span></p>
         </div>
       </div><!-- End Stats Item -->
+    </div>
+  </div>
+</section>
 
     </div>
   </div>
@@ -789,6 +807,14 @@ session_start();
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const toggleButton = document.querySelector('.mobile-nav-toggle');
+    const navMenu = document.getElementById('navmenu');
+
+    toggleButton.addEventListener('click', () => {
+        navMenu.classList.toggle('active'); // Toggle the active class
+    });
+</script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>

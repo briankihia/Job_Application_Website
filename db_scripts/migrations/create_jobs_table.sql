@@ -6,5 +6,7 @@ CREATE TABLE jobs (
     salary DECIMAL(10, 2) NOT NULL,       -- Salary, with two decimal places
     job_type VARCHAR(50) NOT NULL,        -- Job type (e.g., full-time, part-time)
     application_deadline DATE NOT NULL,    -- Application deadline
-    job_description TEXT NOT NULL          -- Job description
+    job_description TEXT NOT NULL,          -- Job description
+    required_knowledge VARCHAR(255),
+    education VARCHAR(255)
 );
