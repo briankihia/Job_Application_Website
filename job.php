@@ -266,10 +266,10 @@ $icons = [
                                     <div class="single-job-items mb-30">
                                         <div class="job-items">
                                             <div class="company-img">
-                                                <a href="job_details.html?id=<?php echo $row['id']; ?>"><img src="assets/img/icon/job-list1.png" alt=""></a>
+                                                <a href="job_details.php?id=<?php echo $row['id']; ?>"><img src="assets/img/icon/job-list1.png" alt=""></a>
                                             </div>
                                             <div class="job-tittle">
-                                                <a href="job_details.html?id=<?php echo $row['id']; ?>"><h4><?php echo $row['job_title']; ?></h4></a>
+                                                <a href="job_details.php?id=<?php echo $row['id']; ?>"><h4><?php echo $row['job_title']; ?></h4></a>
                                                 <ul>
                                                     <li>RCMRD</li>
                                                     <li><i class="fas fa-map-marker-alt"></i><?php echo $row['job_location']; ?></li>
@@ -278,7 +278,7 @@ $icons = [
                                             </div>
                                         </div>
                                         <div class="items-link f-right">
-                                            <a href="job_details.html?id=<?php echo $row['id']; ?>"><?php echo $row['job_type']; ?></a>
+                                            <a href="job_details.php?id=<?php echo $row['id']; ?>"><?php echo $row['job_type']; ?></a>
                                             <span><?php echo time_elapsed_string($row['application_deadline']); ?></span>
                                         </div>
                                     </div>

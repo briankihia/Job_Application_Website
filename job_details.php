@@ -161,11 +161,26 @@
                                     <h4>Required Knowledge, Skills, and Abilities</h4>
                                 </div>
                                <ul>
-                                   <li>System Software Development</li>
+                                   
+                                   <!-- below we display the data from the database as a list -->
+                                    <?php 
+                                        // Split the skills string by commas
+                                        $skillsArray = explode(',', $job['required_knowledge']);
+                                        
+                                        // Iterate through the array and display each skill as a list item
+                                        foreach ($skillsArray as $required_knowledge) {
+                                            // Trim any whitespace from the skill name
+                                            $required_knowledge = trim($required_knowledge);
+                                            echo "<li>$required_knowledge</li>";
+                                        }
+                                    ?>
+
+
+                                   <!-- <li>System Software Development</li>
                                    <li>Mobile Applicationin iOS/Android/Tizen or other platform</li>
                                    <li>Research and code , libraries, APIs and frameworks</li>
                                    <li>Strong knowledge on software development life cycle</li>
-                                   <li>Strong problem solving and debugging skills</li>
+                                   <li>Strong problem solving and debugging skills</li> -->
                                </ul>
                             </div>
                             <div class="post-details2  mb-50">
@@ -174,11 +189,24 @@
                                     <h4>Education + Experience</h4>
                                 </div>
                                <ul>
-                                   <li>3 or more years of professional design experience</li>
+
+                                     <!-- below we display the data from the database as a list -->
+                                     <?php 
+                                        // Split the skills string by commas
+                                        $educationArray = explode(',', $job['education']);
+                                        
+                                        // Iterate through the array and display each skill as a list item
+                                        foreach ($educationArray as $education) {
+                                            // Trim any whitespace from the skill name
+                                            $education = trim($education);
+                                            echo "<li>$education</li>";
+                                        }
+                                    ?>
+                                   <!-- <li>3 or more years of professional design experience</li>
                                    <li>Direct response email experience</li>
                                    <li>Ecommerce website design experience</li>
                                    <li>Familiarity with mobile and web apps preferred</li>
-                                   <li>Experience using Invision a plus</li>
+                                   <li>Experience using Invision a plus</li> -->
                                </ul>
                             </div>
                         </div>
