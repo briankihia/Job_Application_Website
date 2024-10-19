@@ -411,6 +411,8 @@ if (!isset($_SESSION['user_id'])) {
                                         <th scope="col">Job Type</th>
                                         <th scope="col">Deadline</th>
                                         <th scope="col">Job Description</th>
+                                        <th scope="col">Required Knowledge</th>
+                                        <th scope="col">Education</th>
                                         <th scope="col">Details</th>
                                         <th scope="col">Delete Job Post</th>
                                         
@@ -439,13 +441,17 @@ if (!isset($_SESSION['user_id'])) {
                                         while ($row = $result->fetch_assoc()) {
                                             echo '<tr>';
                                             // echo '<td><input class="form-check-input" type="checkbox"></td>';
-                                            echo '<td>' . htmlspecialchars($row['job_title']) . '</td>';
-                                            echo '<td>' . htmlspecialchars($row['job_category']) . '</td>';
-                                            echo '<td>' . htmlspecialchars($row['job_location']) . '</td>';
-                                            echo '<td>' . htmlspecialchars($row['salary']) . '</td>';
-                                            echo '<td>' . htmlspecialchars($row['job_type']) . '</td>';
-                                            echo '<td>' . htmlspecialchars($row['application_deadline']) . '</td>';
-                                            echo '<td >' . htmlspecialchars($row['job_description']) . '</td>';
+                                           // Define specific widths for each table cell
+                                            echo '<td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' . htmlspecialchars($row['job_title']) . '</td>';
+                                            echo '<td style="max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' . htmlspecialchars($row['job_category']) . '</td>';
+                                            echo '<td style="max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' . htmlspecialchars($row['job_location']) . '</td>';
+                                            echo '<td style="max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' . htmlspecialchars($row['salary']) . '</td>';
+                                            echo '<td style="max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' . htmlspecialchars($row['job_type']) . '</td>';
+                                            echo '<td style="max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' . htmlspecialchars($row['application_deadline']) . '</td>';
+                                            echo '<td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' . htmlspecialchars($row['job_description']) . '</td>';
+                                            echo '<td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' . htmlspecialchars($row['required_knowledge']) . '</td>';
+                                            echo '<td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' . htmlspecialchars($row['education']) . '</td>';
+                
 
                                             echo '<td><a class="btn btn-sm btn-primary" href="edit_job.php?id=' . htmlspecialchars($row['id']) . '">Detail</a></td>'; // Assuming 'id' is the primary key
 

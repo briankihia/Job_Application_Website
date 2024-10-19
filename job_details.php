@@ -72,7 +72,7 @@
                                 <div class="main-menu">
                                     <nav class="d-none d-lg-block">
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="index.php">Home</a></li>
                                             <li><a href="job_listing.html">Find a Jobs </a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="#">Page</a>
@@ -220,12 +220,12 @@
                                <h4>Job Overview</h4>
                            </div>
                           <ul>
-                              <li>Posted date : <span>12 Aug 2019</span></li>
-                              <li>Location : <span>New York</span></li>
+                              <li>Posted date : <span>***</span></li>
+                              <li>Location : <span><?php echo $job['job_location']; ?></span></li>
                               <li>Vacancy : <span>02</span></li>
-                              <li>Job nature : <span>Full time</span></li>
-                              <li>Salary :  <span>$7,800 yearly</span></li>
-                              <li>Application date : <span>12 Sep 2020</span></li>
+                              <li>Job nature : <span><?php echo $job['job_type']; ?></span></li>
+                              <li>Salary :  <span><?php echo $job['salary']; ?></span></li>
+                              <li>Application date : <span>***</span></li>
                           </ul>
                          <div class="apply-btn2">
                             <a href="#" class="btn">Apply Now</a>
@@ -233,7 +233,8 @@
                        </div>
                         <div class="post-details4  mb-50">
                             <!-- Small Section Tittle -->
-                           <div class="small-section-tittle">
+
+                           <!-- <div class="small-section-tittle">
                                <h4>Company Information</h4>
                            </div>
                               <span>Colorlib</span>
@@ -243,7 +244,9 @@
                                 <li>Web : <span> colorlib.com</span></li>
                                 <li>Email: <span>carrier.colorlib@gmail.com</span></li>
                             </ul>
-                       </div>
+                       </div> -->
+
+
                     </div>
                 </div>
             </div>

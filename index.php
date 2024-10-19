@@ -11,9 +11,13 @@ session_start();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>job_Application_Website</title>
+
   <meta name="description" content="">
   <meta name="keywords" content="">
-
+<link href="/templates/protostar/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link href="/media/plg_content_2clicksocialbuttons/2clicksocialbuttons.css" rel="stylesheet" />
+<link href="/components/com_uniform/assets/css/modal.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -643,155 +647,95 @@ session_start();
   </div>
 
 </section><!-- /Faq Section -->
-
-    
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-geo-alt"></i>
-              <h3>Address</h3>
-              <p>A108 Adam Street, New York, NY 535022</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center info-item-borders">
-              <i class="bi bi-telephone"></i>
-              <h3>Call Us</h3>
-              <p>+1 5589 55488 55</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-envelope"></i>
-              <h3>Email Us</h3>
-              <p>info@example.com</p>
-            </div>
-          </div><!-- End Info Item -->
-
-        </div>
-
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
-              <button type="submit">Send Message</button>
-            </div>
-
-          </div>
-        </form><!-- End Contact Form -->
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
   </main>
-
-  <footer id="footer" class="footer dark-background">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Groovin</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
+  <div class="footery" style="background-color: #003366; color: white; padding: 20px; font-family: Arial, sans-serif;">
+    <div class="footcont" style="max-width: 1200px; margin: auto;">
+        <div class="moduletable">
+            <h3 style="text-align: center; margin-bottom: 20px;">Get In Touch For More Information, Registration, or Further Questions</h3>
+            <div class="custom">
+                <div class="row" style="display: flex; justify-content: space-around;">
+                    <div class="col-xs-6 col-sm-3 loc1" style="text-align: center; margin-bottom: 15px;">
+                        <p>Roysambu, Kasarani <br />Nairobi, Kenya</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 tel" style="text-align: center; margin-bottom: 15px;">
+                        <p>+254 020 2680748 / 2680722 <br /> +254 723 786161 / +254 735 981098</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 mailer" style="text-align: center; margin-bottom: 15px;">
+                        <p>P.O. Box 632-00618 Nairobi, Kenya</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 mailer1" style="text-align: center; margin-bottom: 15px;">
+                        <p>rcmrd@rcmrd.org</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
-
-      </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Groovin</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+    <div class="socially rcmrd home" style="text-align: center; margin-bottom: 20px;">
+        <div class="moduletable">
+            <div class="custom">
+                <p style="display: flex; justify-content: center;">
+                    <a href="https://twitter.com/rcmrd_" target="_blank" style="margin: 0 10px;"><img src="/images/MAJOR-EVENTS/twitter.png" alt="Twitter" style="width: 40px; height: 40px;" /></a>
+                    <a href="https://www.facebook.com/RCMRD-811856365503079/" target="_blank" style="margin: 0 10px;"><img src="/images/MAJOR-EVENTS/fb.png" alt="Facebook" style="width: 40px; height: 40px;" /></a>
+                    <a href="https://www.flickr.com/photos/128418604@N04/" target="_blank" style="margin: 0 10px;"><img src="/images/MAJOR-EVENTS/flicker.png" alt="Flickr" style="width: 40px; height: 40px;" /></a>
+                    <a href="https://www.instagram.com/rcmrdcommunity/" target="_blank" style="margin: 0 10px;"><img src="/images/MAJOR-EVENTS/insta.png" alt="Instagram" style="width: 40px; height: 40px;" /></a>
+                    <a href="https://www.youtube.com/channel/UCBsaCz6wecwG53I1S-lwtyA" target="_blank" style="margin: 0 10px;"><img src="/images/MAJOR-EVENTS/yt.png" alt="YouTube" style="width: 40px; height: 40px;" /></a>
+                    <a href="https://www.linkedin.com/company/regional-centre-for-mapping-of-resources-for-development-rcmrd-/" target="_blank" style="margin: 0 10px;"><img src="/images/MAJOR-EVENTS/linked.png" alt="LinkedIn" style="width: 40px; height: 40px;" /></a>
+                    <a href="https://twitter.com/TheRCTI_RCMRD" target="_blank" style="margin: 0 10px;"><img src="/images/MAJOR-EVENTS/twitter.png" alt="RCTI Twitter" style="width: 40px; height: 40px;" /></a>
+                </p>
+            </div>
+        </div>
     </div>
 
-  </footer>
+    <div class="feedform rcmrd home" style="max-width: 600px; margin: auto; text-align: center;">
+        <div class="moduletable">
+            <h3 style="margin-bottom: 20px;">Send Us an Email - Sign Up to Get the Latest Updates.</h3>
+            <div class="jsn-uniform jsn-master" data-form-name="b238bc8aadf83cf2f0490a3c6f90bc3c" id="jsn_form_1">
+                <form action="https://rcmrd.org/index.php?option=com_uniform&amp;view=form&amp;task=form.save&amp;form_id=1" method="post" class="form-validate default" enctype="multipart/form-data" autocomplete="off">
+                    
+                  <span class="hide jsn-language" style="display:none;" data-value='{"JSN_UNIFORM_CHARACTERS":"Characters","JSN_UNIFORM_WORDS":"Words","JSN_UNIFORM_CONFIRM_FIELD_PASSWORD_MIN_MAX_CHARACTER":"The password must contain minimum %mi% and maximum %mx% character(s)","JSN_UNIFORM_CONFIRM_FIELD_EMAIL_CONFIRM":"Both email addresses must be the same.","JSN_UNIFORM_CONFIRM_FIELD_MIN_NUMBER":"The number cannot be less than","JSN_UNIFORM_CONFIRM_FIELD_MAX_NUMBER":"The number cannot be greater than","JSN_UNIFORM_DATE_HOUR_TEXT":"Hour","JSN_UNIFORM_DATE_MINUTE_TEXT":"Minute","JSN_UNIFORM_DATE_CLOSE_TEXT":"Close","JSN_UNIFORM_DATE_PREV_TEXT":"Prev","JSN_UNIFORM_DATE_NEXT_TEXT":"Next","JSN_UNIFORM_DATE_CURRENT_TEXT":"Today","JSN_UNIFORM_DATE_MONTH_JANUARY":"January","JSN_UNIFORM_DATE_MONTH_FEBRUARY":"February","JSN_UNIFORM_DATE_MONTH_MARCH":"March","JSN_UNIFORM_DATE_MONTH_APRIL":"April","JSN_UNIFORM_DATE_MONTH_MAY":"May","JSN_UNIFORM_DATE_MONTH_JUNE":"June","JSN_UNIFORM_DATE_MONTH_JULY":"July","JSN_UNIFORM_DATE_MONTH_AUGUST":"August","JSN_UNIFORM_DATE_MONTH_SEPTEMBER":"September","JSN_UNIFORM_DATE_MONTH_OCTOBER":"October","JSN_UNIFORM_DATE_MONTH_NOVEMBER":"November","JSN_UNIFORM_DATE_MONTH_DECEMBER":"December","JSN_UNIFORM_DATE_MONTH_JANUARY_SHORT":"Jan","JSN_UNIFORM_DATE_MONTH_FEBRUARY_SHORT":"Feb","JSN_UNIFORM_DATE_MONTH_MARCH_SHORT":"Mar","JSN_UNIFORM_DATE_MONTH_APRIL_SHORT":"Apr","JSN_UNIFORM_DATE_MONTH_MAY_SHORT":"May","JSN_UNIFORM_DATE_MONTH_JUNE_SHORT":"Jun","JSN_UNIFORM_DATE_MONTH_JULY_SHORT":"Jul","JSN_UNIFORM_DATE_MONTH_AUGUST_SHORT":"Aug","JSN_UNIFORM_DATE_MONTH_SEPTEMBER_SHORT":"Sep","JSN_UNIFORM_DATE_MONTH_OCTOBER_SHORT":"Oct","JSN_UNIFORM_DATE_MONTH_NOVEMBER_SHORT":"Nov","JSN_UNIFORM_DATE_MONTH_DECEMBER_SHORT":"Dec","JSN_UNIFORM_DATE_DAY_SUNDAY":"Sunday","JSN_UNIFORM_DATE_DAY_MONDAY":"Monday","JSN_UNIFORM_DATE_DAY_TUESDAY":"Tuesday","JSN_UNIFORM_DATE_DAY_WEDNESDAY":"Wednesday","JSN_UNIFORM_DATE_DAY_THURSDAY":"Thursday","JSN_UNIFORM_DATE_DAY_FRIDAY":"Friday","JSN_UNIFORM_DATE_DAY_SATURDAY":"Saturday","JSN_UNIFORM_DATE_DAY_SUNDAY_SHORT":"Sun","JSN_UNIFORM_DATE_DAY_MONDAY_SHORT":"Mon","JSN_UNIFORM_DATE_DAY_TUESDAY_SHORT":"Tue","JSN_UNIFORM_DATE_DAY_WEDNESDAY_SHORT":"Wed","JSN_UNIFORM_DATE_DAY_THURSDAY_SHORT":"Thu","JSN_UNIFORM_DATE_DAY_FRIDAY_SHORT":"Fri","JSN_UNIFORM_DATE_DAY_SATURDAY_SHORT":"Sat","JSN_UNIFORM_DATE_DAY_SUNDAY_MIN":"Su","JSN_UNIFORM_DATE_DAY_MONDAY_MIN":"Mo","JSN_UNIFORM_DATE_DAY_TUESDAY_MIN":"Tu","JSN_UNIFORM_DATE_DAY_WEDNESDAY_MIN":"We","JSN_UNIFORM_DATE_DAY_THURSDAY_MIN":"Th","JSN_UNIFORM_DATE_DAY_FRIDAY_MIN":"Fr","JSN_UNIFORM_DATE_DAY_SATURDAY_MIN":"Sa","JSN_UNIFORM_DATE_DAY_WEEK_HEADER":"Wk","JSN_UNIFORM_CONFIRM_FIELD_MAX_LENGTH":"The information cannot contain more than","JSN_UNIFORM_CONFIRM_FIELD_MIN_LENGTH":"The information cannot contain less than","JSN_UNIFORM_CAPTCHA_PUBLICKEY":"JSN_UNIFORM_CAPTCHA_PUBLICKEY","JSN_UNIFORM_BUTTON_BACK":"Back","JSN_UNIFORM_BUTTON_NEXT":"Next","JSN_UNIFORM_BUTTON_RESET":"Reset","JSN_UNIFORM_BUTTON_SUBMIT":"Submit","JSN_UNIFORM_CONFIRM_FIELD_CANNOT_EMPTY":"This field can not be empty, please enter required information.","JSN_UNIFORM_CONFIRM_FIELD_INVALID":"The information is invalid, please correct.","JSN_UNIFORM_WORDS_LEFT":"word(s) left","JSN_UNIFORM_CHARACTERS_LEFT":"character(s) left","JSN_UNIFORM_VALIDATION_FAILS":"Please correct the data of this field. An example of valid data is: %s","JSN_UNIFORM_EQUAL_TO_OR_GREATER_THAN_TODAY_ALERT":"Please select a date that is equal to or greater than today","JSN_UNIFORM_MAX_LENGTH_ALERT":"The length of inputted value is greater than the maximum length of %d characters allowed for this field.","JSN_UNIFORM_WRONG_NUMBER_SLIDER_VALUE":"Value must be a multiple of %s."}'></span><span class="hide jsn-base-url" style="display:none;" data-value="https://rcmrd.org"></span><div id="page-loading" class="jsn-bgloading"><i class="jsn-icon32 jsn-icon-loading"></i></div><div class="jsn-row-container jsn-style-light vertical"><div class="message-uniform"> </div><div data-value="1" class="jsn-form-content hide"><div class='jsn-row-container row-fluid jsn-uf-row-container'><div class="jsn-container-left span12"><div class="control-group  single_line_text_22850242710_22_2 " data-id="1-jsn-uf-form-field">
+                  <div class="message-uniform"></div>
+                    <div class="jsn-form-content">
+                        <div class="jsn-row-container" style="display: flex; flex-direction: column; align-items: center;">
+                            <div class="control-group" style="display: flex; align-items: center; margin-bottom: 15px; width: 100%;">
+                                <label class="control-label" style="margin-right: 10px; width: 30%;">Full Name <span class="required">*</span></label>
+                                <input class="jsn-input-xlarge-fluid" name="1" type="text" placeholder="Full Name" required style="padding: 15px; flex-grow: 1; font-size: 16px;" />
+                            </div>
+                            <div class="control-group" style="display: flex; align-items: center; margin-bottom: 15px; width: 100%;">
+                                <label class="control-label" style="margin-right: 10px; width: 30%;">Email Address <span class="required">:</span></label>
+                                <input class="email email-required jsn-input-xlarge-fluid" name="2" type="email" placeholder="Email Address*" required style="padding: 15px; flex-grow: 1; font-size: 16px;" />
+                            </div>
+                            <div class="control-group" style="display: flex; align-items: center; margin-bottom: 15px; width: 100%;">
+                                <label class="control-label" style="margin-right: 10px; width: 30%;">Phone Number</label>
+                                <input class="jsn-input-xlarge-fluid" name="18" type="text" placeholder="Phone Number" style="padding: 15px; flex-grow: 1; font-size: 16px;" />
+                            </div>
+                            <div class="control-group" style="display: flex; align-items: center; margin-bottom: 15px; width: 100%;">
+                                <label class="control-label" style="margin-right: 10px; width: 30%;">Message <span class="required">:</span></label>
+                                <textarea rows="3" class="jsn-input-xlarge-fluid" name="5" placeholder="Message*" required style="padding: 15px; flex-grow: 1; font-size: 16px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group" style="text-align: center; margin-bottom: 10px;">
+                        <div class="controls">
+                            <img class="jsn-captcha-image" src="data:image/png;base64,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"
+                            
+                            alt="Captcha" style="margin-bottom: 10px; width: 100px; height: auto;" />
+                            <!-- Assuming the CAPTCHA is base64 encoded -->
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn btn-primary" style="background-color: #0056b3; color: white; padding: 15px 30px; border: none; cursor: pointer; font-size: 16px;">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
+  
+  
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
