@@ -8,5 +8,6 @@ CREATE TABLE jobs (
     application_deadline DATE NOT NULL,    -- Application deadline
     job_description TEXT NOT NULL,          -- Job description
     required_knowledge VARCHAR(255),
-    education VARCHAR(255)
+    education VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

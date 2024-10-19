@@ -46,7 +46,8 @@ $icons = [
     'design' => 'flaticon-helmet',
     'Information Technology' => 'flaticon-high-tech',
     'marketing' => 'flaticon-real-estate',
-    'Content Writer' => 'flaticon-content'
+    'Content Writer' => 'flaticon-content',
+    'sales' => 'flaticon-content'
     // Add more categories and their corresponding icons as needed
 ];
 
@@ -114,15 +115,15 @@ $icons = [
                                 <div class="main-menu">
                                     <nav class="d-none d-lg-block">
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="job_listing.html">Find a Jobs </a></li>
+                                            <li><a href="index.php">Home</a></li>
+                                            <li><a href="job_listing.php">Find a Jobs </a></li>
                                 
                                             <li><a href="#">Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="single-blog.html">Blog Details</a></li>
                                                     <li><a href="elements.html">Elements</a></li>
-                                                    <li><a href="job_details.html">job Details</a></li>
+                                                    <li><a href="job_details.php">job Details</a></li>
                                                 </ul>
                                             </li>
                                             
@@ -215,7 +216,7 @@ $icons = [
                                                 <span class="<?php echo isset($icons[$category]) ? $icons[$category] : 'flaticon-default'; ?>"></span>
                                             </div>
                                             <div class="services-cap">
-                                                <h5><a href="job_listing.html"><?php echo htmlspecialchars($category); ?></a></h5>
+                                                <h5><a href="job_listing.php"><?php echo htmlspecialchars($category); ?></a></h5>
                                                 <span>(<?php echo $count; ?>)</span>
                                             </div>
                                         </div>
@@ -279,7 +280,7 @@ $icons = [
                                         </div>
                                         <div class="items-link f-right">
                                             <a href="job_details.php?id=<?php echo $row['id']; ?>"><?php echo $row['job_type']; ?></a>
-                                            <span><?php echo time_elapsed_string($row['application_deadline']); ?></span>
+                                            <span><?php echo time_elapsed_string($row['created_at']); ?></span>
                                         </div>
                                     </div>
                                 <?php endwhile; ?>

@@ -1,3 +1,47 @@
+<?php
+    // Include the file for connecting to the database
+    include 'db_scripts/config/db_connection.php';
+
+
+    // Fetch job listings
+    $sql = "SELECT * FROM jobs ORDER BY created_at DESC";
+    $result = $conn->query($sql);
+
+
+
+    function time_elapsed_string($datetime, $full = false) {
+        $now = new DateTime;
+        $ago = new DateTime($datetime);
+        $diff = $now->diff($ago);
+    
+        $diff->w = floor($diff->d / 7);
+        $diff->d -= $diff->w * 7;
+    
+        $string = [
+            'y' => 'year',
+            'm' => 'month',
+            'w' => 'week',
+            'd' => 'day',
+            'h' => 'hour',
+            'i' => 'minute',
+            's' => 'second',
+        ];
+        foreach ($string as $k => &$v) {
+            if ($diff->$k) {
+                $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+            } else {
+                unset($string[$k]);
+            }
+        }
+    
+        if (!$full) $string = array_slice($string, 0, 1);
+        return $string ? implode(', ', $string) . ' ago' : 'just now';
+    }
+    
+?>
+
+
+
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -56,7 +100,7 @@
                                     <nav class="d-none d-lg-block">
                                         <ul id="navigation">
                                             <li><a href="index.php">Home</a></li>
-                                            <li><a href="job_listing.html">Find a Jobs </a></li>
+                                            <li><a href="job_listing.php">Find a Jobs </a></li>
                                             <li><a href="#">Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>
@@ -293,8 +337,52 @@
                                     </div>
                                 </div>
                                 <!-- Count of Job list End -->
+
+
+
+
+
+
+                                <?php
+
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo '<div class="single-job-items mb-30">';
+                                            echo '    <div class="job-items">';
+                                            echo '        <div class="company-img">';
+                                            echo '            <a href="#"><img src="assets/img/icon/job-list1.png" alt=""></a>';
+                                            echo '        </div>';
+                                            echo '        <div class="job-tittle job-tittle2">';
+                                            echo '            <a href="job_details.php?id='. $row['id'] . '"><h4>' . $row['job_title'] . '</h4></a>';
+                                            echo '            <ul>';
+                                            echo '                <li>RCMRD</li>';
+                                            echo '                <li><i class="fas fa-map-marker-alt"></i>' . $row['job_location'] . '</li>';
+                                            echo '                <li>' . $row['salary'] . '</li>';
+                                            echo '            </ul>';
+                                            echo '        </div>';
+                                            echo '    </div>';
+                                            echo '    <div class="items-link items-link2 f-right">';
+                                            echo '        <a href="job_details.php?id=' . $row['id'] . '">' . $row['job_type'] . '</a>';
+                                            echo '        <span>' . time_elapsed_string($row['created_at']) . '</span>';
+                                            echo '    </div>';
+                                            echo '</div>';
+                                        }
+                                    } else {
+                                        echo "No job listings found.";
+                                    }
+
+                                    $conn->close();
+                                    ?>
+
+
+
+                         
+
+
+
                                 <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
+                                <!-- <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="#"><img src="assets/img/icon/job-list1.png" alt=""></a>
@@ -314,9 +402,9 @@
                                         <a href="job_details.html">Full Time</a>
                                         <span>7 hours ago</span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
+                                <!-- <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="#"><img src="assets/img/icon/job-list2.png" alt=""></a>
@@ -336,16 +424,17 @@
                                         <a href="job_details.html">Full Time</a>
                                         <span>7 hours ago</span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
+
+                                <!-- <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="#"><img src="assets/img/icon/job-list3.png" alt=""></a>
                                         </div>
                                         <div class="job-tittle job-tittle2">
-                                            <a href="#">
-                                                <h4>Digital Marketer</h4>
+                                            <a href="#"> -->
+                                                <!-- <h4>Digital Marketer</h4>
                                             </a>
                                             <ul>
                                                 <li>Creative Agency</li>
@@ -358,14 +447,15 @@
                                         <a href="job_details.html">Full Time</a>
                                         <span>7 hours ago</span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
+
+                                <!-- <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="#"><img src="assets/img/icon/job-list4.png" alt=""></a>
-                                        </div>
-                                        <div class="job-tittle job-tittle2">
+                                        </div> -->
+                                        <!-- <div class="job-tittle job-tittle2">
                                             <a href="#">
                                                 <h4>Digital Marketer</h4>
                                             </a>
@@ -380,9 +470,11 @@
                                         <a href="job_details.html">Full Time</a>
                                         <span>7 hours ago</span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
+
+
+                                <!-- <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="#"><img src="assets/img/icon/job-list1.png" alt=""></a>
@@ -402,9 +494,10 @@
                                         <a href="job_details.html">Full Time</a>
                                         <span>7 hours ago</span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
+
+                                <!-- <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="#"><img src="assets/img/icon/job-list3.png" alt=""></a>
@@ -424,14 +517,15 @@
                                         <a href="job_details.html">Full Time</a>
                                         <span>7 hours ago</span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
+
+                                <!-- <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="#"><img src="assets/img/icon/job-list4.png" alt=""></a>
-                                        </div>
-                                        <div class="job-tittle job-tittle2">
+                                        </div> -->
+                                        <!-- <div class="job-tittle job-tittle2">
                                             <a href="#">
                                                 <h4>Digital Marketer</h4>
                                             </a>
@@ -448,8 +542,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section> -->
+
+
                         <!-- Featured_job_end -->
+
+
+
+                        
                     </div>
                 </div>
             </div>
